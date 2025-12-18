@@ -5,27 +5,3 @@
 
 # 攻略
 懒得写了，有需要再说吧！！！好麻烦啊！！！
-密码们：
-<select id="content-selector">
-    <option value="0">无</option>
-    <option value="1">笼子里</option>
-    <option value="2">扫帚</option>
-    <option value="3">瓶子里</option>
-    <option value="3">小本子</option>
-</select>
-
-<div id="0" class="content">
-   点击下拉式列表以查看
-</div>
-<div id="1" class="content">
-   点击下拉式列表以查看
-</div>
-<div id="2" class="content">
-   点击下拉式列表以查看
-</div>
-<div id="3" class="content">
-   点击下拉式列表以查看
-</div>
-<div id="4" class="content">
-   点击下拉式列表以查看
-</div>
