@@ -310,7 +310,7 @@ $WRONGway[2]
 &lt;&lt;if $BB is true&amp;&amp;$BB1 is false &gt;&gt;
 	【棒棒糖】
 &lt;&lt;elseif $BB is true &amp;&amp; $BB1 is true&gt;&gt;
-	&lt;font color=&quot;#686767&quot;&gt;【棒棒糖】&lt;/font&gt;
+	&lt;font color=&quot;#686767&quot;&gt;【棒棒糖】&lt;/font&gt;&lt;font color=&quot;#FFA6EA&quot;&gt;【甜飘飘的心情】&lt;/font&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;/if&gt;&gt;&lt;br&gt;
 
@@ -390,6 +390,11 @@ $WRONGway[2]
 &lt;&lt;set $gz1 to false&gt;&gt;&lt;&lt;set $gz2 to false&gt;&gt;&lt;&lt;set $gz3 to false&gt;&gt;&lt;&lt;set $gz4 to false&gt;&gt;/*巨大柜子中是否点击了linkreplace*/
 
 &lt;&lt;set $G21L to &quot;&quot;&gt;&gt;挂画对话默认值设定
+&lt;&lt;set $TS11 to 0&gt;&gt;密码提示
+&lt;&lt;set $JQ11 to false&gt;&gt;道别剧情&lt;&lt;set $JQ12 to false&gt;&gt;道别剧情
+&lt;&lt;set $JQ13 to false&gt;&gt;听歌
+&lt;&lt;set $song to [&quot;这首听起来像蘑菇&quot;, &quot;这首歌听起来香香的&quot;, &quot;这首歌听得人耳朵痒痒的&quot;,&quot;这首歌实在是有点儿烫人&quot;,&quot;你觉得这首歌让人困困的，盆栽却说它很提神&quot;, &quot;是一首讲孢子的歌，你听不懂，盆栽却在哇哇哭&quot;, &quot;人偶偶尔经过你们，这时候就会顺便给盆栽松松土，然后给你一杯小松果茶。\n\n喷香的热茶中有幸福魔法的味道！&quot;, &quot;盆栽听得太高兴了，叶子都摇掉了不少！你捡了一片，有点儿黄了，但是也很漂亮，像一片大大的羽毛。&quot;, &quot;你们听了无数首歌，每一首的结束都接着另一首的开头，仿佛它们共属于同一乐章的不同小节。乐章永远不会落幕。&quot;, &quot;盆栽问你要不要动身启程，你犹犹豫豫地应付着，眼睛直往它的随身听上瞟。\n\n没门！！！盆栽特意调大扩音器的音量，大喊道。不过……你可以再听一会儿。&quot;]&gt;&gt;
+
 
 &lt;&lt;set $MD to false&gt;&gt;&lt;&lt;set $MD1 to false&gt;&gt;/*没电电池有没有获得*/
 &lt;&lt;set $HY to false&gt;&gt;&lt;&lt;set $HY1 to false&gt;&gt;/*黄金钥匙有没有获得*/
@@ -613,7 +618,7 @@ Write a short essay about pies:
 &lt;&lt;if $END1 is false&gt;&gt;
 通往自由的大门，现在紧紧地闭着。门上光秃秃的，只有一截金属树枝，看起来像是个魔法封印。
 &lt;&lt;else&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $C31 ===&quot;抹除魔法&quot;&amp;&amp;$END1 is false&gt;&gt;
+&lt;&lt;if $C31 ===&quot;抹除魔法&quot;&amp;&amp;$END1 is false&gt;&gt;&lt;&lt;set $JQ11 to true&gt;&gt;
 	金属树枝枯萎了，松松地垂下，门也就势开了一条缝。
     可以出来啦！
     
@@ -675,6 +680,7 @@ Write a short essay about pies:
 &lt;&lt;if $kk3 is false&gt;&gt;&lt;&lt;else&gt;&gt;&lt;font color=&quot;#D5D5D5&quot;&gt;[[小屋大厅|2-2]]&gt;[[柜子|巨大的柜子]]-[[魔法扫帚]]&lt;/font&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $kk4 is false&gt;&gt;&lt;&lt;else&gt;&gt;&lt;font color=&quot;#D5D5D5&quot;&gt;[[小屋大厅|2-2]]&gt;[[魔法鱼缸]]&lt;/font&gt;&lt;&lt;/if&gt;&gt;
 &lt;h2&gt;魔法人偶&lt;/h2&gt;
+&lt;&lt;if $JQ12 is false&gt;&gt;
 &lt;font color=&quot;#D854A4&quot;&gt;魔法人偶小小的，和女巫相比只有她的巴掌大，&lt;/font&gt;想起来女巫天天使唤它干活，你禁不住同情起它来。
 
 许完愿之后的魔法人偶看着像是睡着了，不论你怎么叫它都没有反应，用开机指令也不行。
@@ -709,8 +715,19 @@ Write a short essay about pies:
 &lt;&lt;else&gt;&gt;
 	&lt;&lt;textbox &quot;$R21&quot; &quot;&quot; [[人偶]]&gt;&gt;[[确定|人偶]]
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;
+你和人偶娃娃道别，她冲你点点头，什么也没说。
+&lt;&lt;if $MC1 !==3&gt;&gt;你从她的表情看出来，她似乎想要你去看看公主和小精灵。
 
+“她是超——老实的家伙，你看女巫创造了这么多魔法小家伙，只有她在干活。”盆栽唏嘘道，“等我攒够魔法药水，把果子变甜之后，就说服她和我一起坐糖果屋跑掉！那肯定会是很棒的旅行。”
+&lt;&lt;else&gt;&gt;你从她的表情看出来，她在感谢你对大家的帮助，并向你道别。
+
+“她是超——老实的家伙，你看女巫创造了这么多魔法小家伙，只有她在干活。”盆栽唏嘘道，“等我攒够魔法药水，把果子变甜之后，就说服她和我一起坐糖果屋跑掉！那肯定会是很棒的旅行。”
+
+&lt;font color=&quot;#82B65B&quot;&gt;“说起来你出去打算去哪里呀？我们到时候没准能碰面呢！你要记得在自己的小屋门口挂一些红红的圆铃铛，我们就能知道你在这儿啦！”&lt;/font&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $JQ11 is true&amp;&amp;$JQ12 is false&gt;&gt;[[告别|人偶][$JQ12 to true]]&lt;&lt;elseif $JQ11 is true&amp;&amp;$JQ12 is true&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 [[看看别处|2-2]]
 </tw-passagedata><tw-passagedata pid="17" name="窗帘" tags="" position="675,475" size="100,100">[[回到大门]]
@@ -867,12 +884,14 @@ Queen Jane‘ll take wine here at four,
 When can open the moon pen in the end?
 【打一英文单词，小写】
 
+&lt;&lt;if $TS11 &gt;=3&gt;&gt;你输入着输入着，突然发现小诗旁边出现一道闪光，凑近去仔细看才发现，那是一行小字，写着：
+&lt;font color=&quot;#D8AC54&quot;&gt;“字母排排站，报数组成词；每行抽一个，协力开大门。”&lt;/font&gt;&lt;&lt;else&gt;&gt;&lt;&lt;/if&gt;&gt;
 你尝试着输入咒语
 &lt;&lt;if $G22L ===&quot;open&quot;&gt;&gt;
 打开了！你拿出来里面的魔法碎片。
 它看起来只有一半。
 获得了前半碎片：【超级魔法-】&lt;&lt;set $Super to true&gt;&gt;
-&lt;&lt;else&gt;&gt;
+&lt;&lt;else&gt;&gt;&lt;&lt;set $TS11 +=1&gt;&gt;
 	&lt;&lt;textbox &quot;$G22L&quot; &quot;&quot; [[巨大的柜子]]&gt;&gt;[[确定|巨大的柜子]]
 &lt;&lt;/if&gt;&gt;
 	&lt;&lt;set $PF1 to true&gt;&gt;
@@ -885,6 +904,7 @@ When can open the moon pen in the end?
 &lt;&lt;elseif $G211L ===&quot;棒棒糖&quot;&gt;&gt;&lt;&lt;set $BB1 to true&gt;&gt;
 棒棒糖对于士兵来说太重了，他一下子没拿住，被糖打了头。
 他更生气了！
+哼，你不要我吃。甜融融的，真好！
 
 快走快走！等会儿再偷偷回来看看。
 	&lt;&lt;set $G211L to &quot;&quot;&gt;&gt;
@@ -924,6 +944,8 @@ When can open the moon pen in the end?
 你吃掉了瓜子仁儿，打了个魔法饱嗝儿，一团雾气从嘴巴里面飘了出来。香飘飘~，你想，香香的瓜子，香香的魔法烟雾，真幸福哇。
 
 至于日记内容？谁要看自己的黑历史啊！[[试试另一条世界线|巨大的柜子][$G22 to &quot;&quot;]]
+
+PS：鹦鹉及其他动物基本都不能吃加工食品，比如棒棒糖。游戏魔法演绎不要作为真实参考依据
 &lt;&lt;elseif $G22 ===&quot;raptor&quot;&gt;&gt;
 嗯？这是你的日记本？！
 “这个日记本用谁的名字打开，就能看到谁的日记。”盆栽说，它努力地往你这边够想偷看，可惜不够长。
@@ -935,6 +957,8 @@ When can open the moon pen in the end?
 你严肃食用了它们，香喷喷的。魔法瓜子仁化作了魔法烟雾从你的耳朵孔里喷了出来。保持高贵，你想，为压下了打嗝的自己感到自豪。
 
 至于日记内容？黑暗的过去就让它沉睡在黑暗之中吧！[[试试另一条世界线|巨大的柜子][$G22 to &quot;&quot;]]
+
+PS：猛禽及其他动物基本都不能吃加工食品，比如棒棒糖。游戏魔法演绎不要作为真实参考依据
 &lt;&lt;else&gt;&gt;
 你尝试解锁小册子密码&lt;&lt;textbox &quot;$G22&quot; &quot;&quot; [[巨大的柜子]]&gt;&gt;[[确定|巨大的柜子]]
 &lt;&lt;/if&gt;&gt;
@@ -1092,13 +1116,18 @@ When can open the moon pen in the end?
 你用魔法块无效化了鱼缸魔法！小精灵们被放了出来！
 它们开心地到处飞翔，一头扎进了各式各样的物品里面，让物品变成了黄色的蓝色的粉色的。
 
-还有一些小精灵在你面前，背对着你跳起舞来。你仔细一看，它们分成了两组，一组是所有的十字形状的小精灵，一组是三角形状的，然后竖着上下跳舞。但你看不懂它们的意思。
+&lt;font color=&quot;#92E6FF&quot;&gt;还有一些小精灵在你面前，背对着你跳起舞来。&lt;/font&gt;你仔细一看，它们分成了两组，一组是所有的十字形状的小精灵，一组是三角形状的，然后竖着上下跳舞。但你看不懂它们的意思，不过把线索记在了物品栏里。
 
 你想了想这个屋子里还有没有没解锁的东西，也许它们想告诉你哪里的密码？
 	&lt;&lt;set $MC1+=1&gt;&gt;
     &lt;&lt;set $Save2 to true&gt;&gt;
     &lt;&lt;set $Hint2 to true&gt;&gt;
 &lt;&lt;elseif $MY21 ===&quot;抹除魔法&quot;&amp;&amp;$Save2 is true&gt;&gt;
+小精灵在空中快乐地飞翔，看到你来了，开心地在你身边跳舞。
+
+在小精灵堆中，你&lt;font color=&quot;#92E6FF&quot;&gt;特别注意到一组小精灵，它们在背对着你跳舞。&lt;/font&gt;你仔细一看，它们分成了两组，一组是十字形状，一组是三角形状，舞步则是竖着上下漂浮。你看不懂它们的意思，不过已经把线索记在物品栏里了，可以慢慢看！
+
+你想了想这个屋子里还有没有没解锁的东西，也许它们想告诉你哪里的密码？
 &lt;&lt;else&gt;&gt;
 也许可以对鱼缸使用什么道具？
 	&lt;&lt;textbox &quot;$MY21&quot; &quot;&quot; [[魔法鱼缸]]&gt;&gt;[[确定|魔法鱼缸]]
@@ -1129,9 +1158,19 @@ https://dwz8.site/yanwenzi/index.html
 &lt;&lt;if $kk4 is false&gt;&gt;&lt;&lt;else&gt;&gt;&lt;font color=&quot;#D5D5D5&quot;&gt;[[小屋大厅|2-2]]&gt;[[魔法鱼缸]]&lt;/font&gt;&lt;&lt;/if&gt;&gt;
 &lt;h2&gt;盆栽&lt;/h2&gt;
 [[与盆栽攀谈|盆栽2][$ntalk+=1]]
-&lt;&lt;if $ntalk===0&gt;&gt;
+&lt;&lt;if $ntalk===0&gt;&gt;&lt;&lt;if $JQ12 is false&gt;&gt;
 盆栽看到你来了，高兴地扭着秧歌。
-不对，即使你走了它也在高兴地扭着，仔细一看它旁边好像多了个麦克风和镜子。
+不对，即使你走了它也在高兴地扭着，仔细一看它旁边好像多了个麦克风和镜子。&lt;&lt;else&gt;&gt;盆栽它看到你回来找它，有一点惊讶。然后它很快地恢复并摆出一副淡定自信的样子给你看，还把不知道哪弄来的耳机分给你，邀请你听它在听的歌。
+
+ 等等，现在听是不是有点太不着急了，女巫随时可能回来耶！
+ “这个耳机有相对论魔法！”盆栽说，“如果倍速，可以一秒钟听完好几千首歌！但是在听的人这边歌还是正常的速度，反而周围的时间会变慢！”
+
+相对论是这样用的吗？？
+
+&lt;&lt;if $JQ13 is true&gt;&gt;&lt;&lt;set _suiji to random(0,8)&gt;&gt;$song[_suiji]&lt;&lt;else&gt;&gt;&lt;&lt;/if&gt;&gt;
+
+[[听听看|盆栽2][$JQ13 to true]]
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;elseif $ntalk lt $talktoplant.length&gt;&gt;
 $talktoplant[$ntalk]
 &lt;&lt;else&gt;&gt;
@@ -1152,8 +1191,7 @@ $talktoplant[$ntalk]
 “你可能觉得它是我的孩子，但实际上它是我的孙辈，哈哈。花粉粒和胚才是我的孩子。植物们都是世代交替的。”[[继续|盆栽2]]
 &lt;&lt;else&gt;&gt;
 &lt;&lt;textbox &quot;$P22&quot; &quot;&quot; [[盆栽2]]&gt;&gt;[[确定|盆栽2]]
-&lt;&lt;/if&gt;&gt;
-
+&lt;&lt;/if&gt;&gt;&lt;&lt;if $JQ11 is true&amp;&amp;$JQ12 is false&gt;&gt;[[告别|盆栽2][$JQ12 to true]]&lt;&lt;elseif $JQ11 is true&amp;&amp;$JQ12 is true&gt;&gt;&lt;&lt;/if&gt;&gt;
 [[去别处看看|2-2][$ntalk to 0]]
 </tw-passagedata><tw-passagedata pid="24" name="回溯魔法阵" tags="未做完" position="675,525" size="100,100">[[回到大门]]
 &lt;&lt;if $kk1 is false&gt;&gt;&lt;&lt;else&gt;&gt;&lt;font color=&quot;#D5D5D5&quot;&gt;[[小屋大厅|2-2]]&gt;[[实验台|巨大的实验台]]-[[挂画]]&lt;/font&gt;&lt;&lt;/if&gt;&gt;
