@@ -129,7 +129,9 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 
 密室逃脱游戏</tw-passagedata><tw-passagedata pid="3" name="游玩提示" tags="" position="375,75" size="100,100">在可填写文本框内输入&lt;font color=&quot;#43F7B5&quot;&gt;【特殊词汇】&lt;/font&gt;中的文字部分，然后单击回车键或按确定键，即可视为使用了道具，可以解锁相关内容。
 
-此外你可以做的动作也可以输入以进行交互，不过出笼子之后就基本没有了因为if嵌套太多了我自己已经看不懂了ORZ。
+&lt;font color=&quot;#9F9D98&quot;&gt;此外你可以做的动作也可以输入以进行交互，不过出笼子之后就基本没有了因为if嵌套太多了我自己已经看不懂了ORZ。&lt;/font&gt;
+
+手机端的道具栏（在画面左侧）默认收起，后续获得道具了的话可以从那里查看！
 
 &lt;&lt;if $R110 ===&quot;特殊词汇&quot;&gt;&gt;
 	恭喜你解开了这个谜题！
@@ -391,6 +393,7 @@ $WRONGway[2]
 
 &lt;&lt;set $G21L to &quot;&quot;&gt;&gt;挂画对话默认值设定
 &lt;&lt;set $TS11 to 0&gt;&gt;密码提示
+&lt;&lt;set $JQ21 to false&gt;&gt;道别剧情&lt;&lt;set $JQ22 to false&gt;&gt;道别剧情
 &lt;&lt;set $JQ11 to false&gt;&gt;道别剧情&lt;&lt;set $JQ12 to false&gt;&gt;道别剧情
 &lt;&lt;set $JQ13 to false&gt;&gt;听歌
 &lt;&lt;set $song to [&quot;这首听起来像蘑菇&quot;, &quot;这首歌听起来香香的&quot;, &quot;这首歌听得人耳朵痒痒的&quot;,&quot;这首歌实在是有点儿烫人&quot;,&quot;你觉得这首歌让人困困的，盆栽却说它很提神&quot;, &quot;是一首讲孢子的歌，你听不懂，盆栽却在哇哇哭&quot;, &quot;人偶偶尔经过你们，这时候就会顺便给盆栽松松土，然后给你一杯小松果茶。\n\n喷香的热茶中有幸福魔法的味道！&quot;, &quot;盆栽听得太高兴了，叶子都摇掉了不少！你捡了一片，有点儿黄了，但是也很漂亮，像一片大大的羽毛。&quot;, &quot;你们听了无数首歌，每一首的结束都接着另一首的开头，仿佛它们共属于同一乐章的不同小节。乐章永远不会落幕。&quot;, &quot;盆栽问你要不要动身启程，你犹犹豫豫地应付着，眼睛直往它的随身听上瞟。\n\n没门！！！盆栽特意调大扩音器的音量，大喊道。不过……你可以再听一会儿。&quot;]&gt;&gt;
@@ -618,7 +621,7 @@ Write a short essay about pies:
 &lt;&lt;if $END1 is false&gt;&gt;
 通往自由的大门，现在紧紧地闭着。门上光秃秃的，只有一截金属树枝，看起来像是个魔法封印。
 &lt;&lt;else&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $C31 ===&quot;抹除魔法&quot;&amp;&amp;$END1 is false&gt;&gt;&lt;&lt;set $JQ11 to true&gt;&gt;
+&lt;&lt;if $C31 ===&quot;抹除魔法&quot;&amp;&amp;$END1 is false&gt;&gt;&lt;&lt;set $JQ11 to true&gt;&gt;&lt;&lt;set $JQ21 to true&gt;&gt;
 	金属树枝枯萎了，松松地垂下，门也就势开了一条缝。
     可以出来啦！
     
@@ -680,7 +683,7 @@ Write a short essay about pies:
 &lt;&lt;if $kk3 is false&gt;&gt;&lt;&lt;else&gt;&gt;&lt;font color=&quot;#D5D5D5&quot;&gt;[[小屋大厅|2-2]]&gt;[[柜子|巨大的柜子]]-[[魔法扫帚]]&lt;/font&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $kk4 is false&gt;&gt;&lt;&lt;else&gt;&gt;&lt;font color=&quot;#D5D5D5&quot;&gt;[[小屋大厅|2-2]]&gt;[[魔法鱼缸]]&lt;/font&gt;&lt;&lt;/if&gt;&gt;
 &lt;h2&gt;魔法人偶&lt;/h2&gt;
-&lt;&lt;if $JQ12 is false&gt;&gt;
+&lt;&lt;if $JQ22 is false&gt;&gt;
 &lt;font color=&quot;#D854A4&quot;&gt;魔法人偶小小的，和女巫相比只有她的巴掌大，&lt;/font&gt;想起来女巫天天使唤它干活，你禁不住同情起它来。
 
 许完愿之后的魔法人偶看着像是睡着了，不论你怎么叫它都没有反应，用开机指令也不行。
@@ -727,7 +730,7 @@ Write a short essay about pies:
 &lt;font color=&quot;#82B65B&quot;&gt;“说起来你出去打算去哪里呀？我们到时候没准能碰面呢！你要记得在自己的小屋门口挂一些红红的圆铃铛，我们就能知道你在这儿啦！”&lt;/font&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;if $JQ11 is true&amp;&amp;$JQ12 is false&gt;&gt;[[告别|人偶][$JQ12 to true]]&lt;&lt;elseif $JQ11 is true&amp;&amp;$JQ12 is true&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $JQ21 is true&amp;&amp;$JQ22 is false&gt;&gt;[[告别|人偶][$JQ22 to true]]&lt;&lt;elseif $JQ21 is true&amp;&amp;$JQ22 is true&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 [[看看别处|2-2]]
 </tw-passagedata><tw-passagedata pid="17" name="窗帘" tags="" position="675,475" size="100,100">[[回到大门]]
@@ -863,6 +866,19 @@ Write a short essay about pies:
 	[[看看中层|巨大的柜子][$gz2 to true]]
 &lt;&lt;else&gt;&gt;
 &lt;h3&gt;中层&lt;/h3&gt;
+&lt;&lt;if $JQ11 is true&gt;&gt;
+你走之前去看了看小兵人。
+甜品小屋静悄悄的，小兵人还是没有出来。
+
+你正打算走，忽然发现它的房顶上挂着一串小红果子。它不是不爱吃吗？
+凑近一看，原来是小红铃铛，用彩色绳子串了起来，系了一个漂亮的结。
+
+“有些女巫声称自己的魔法来自于另一个世界，她们通过梦境穿梭其间。这个五彩绳就是某个女巫带来的跨越了世界的祝福之术。”盆栽说。“小兵人说这个送给你，希望你一路平安”
+
+获得了【平安铃铛】
+
+你把它从物品栏移入了装备栏，好随身佩戴。&lt;font color=&quot;#9F9D98&quot;&gt;（来自作者：我就不写物品添加代码了喔~~~~）&lt;/font&gt;
+&lt;&lt;else&gt;&gt;
 &lt;font color=&quot;#9F9D98&quot;&gt;这里有一个甜品制成的小屋，很香甜，你尝试舔一口，被魔法灵光挡住了。正遗憾的时候，从屋里跑出来个饼干小兵人，冲你吱哇乱叫，看来很生气你对他的房子的不礼貌行为。&lt;/font&gt;
 怎么办呢，是不是应该赔礼道歉一下？
 &lt;&lt;if $G211L ===&quot;粉粉花&quot;&gt;&gt;
@@ -885,7 +901,7 @@ When can open the moon pen in the end?
 【打一英文单词，小写】
 
 &lt;&lt;if $TS11 &gt;=3&gt;&gt;你输入着输入着，突然发现小诗旁边出现一道闪光，凑近去仔细看才发现，那是一行小字，写着：
-&lt;font color=&quot;#D8AC54&quot;&gt;“字母排排站，报数组成词；每行抽一个，协力开大门。”&lt;/font&gt;&lt;&lt;else&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;font color=&quot;#D8AC54&quot;&gt;“字母排排站，报数组成词；每行抽一个，协力把门开。”&lt;/font&gt;&lt;&lt;else&gt;&gt;&lt;&lt;/if&gt;&gt;
 你尝试着输入咒语
 &lt;&lt;if $G22L ===&quot;open&quot;&gt;&gt;
 打开了！你拿出来里面的魔法碎片。
@@ -904,12 +920,13 @@ When can open the moon pen in the end?
 &lt;&lt;elseif $G211L ===&quot;棒棒糖&quot;&gt;&gt;&lt;&lt;set $BB1 to true&gt;&gt;
 棒棒糖对于士兵来说太重了，他一下子没拿住，被糖打了头。
 他更生气了！
-哼，你不要我吃。甜融融的，真好！
+&lt;font color=&quot;#FFA6EA&quot;&gt;哼，你不要我吃。甜融融的，真好吃！&lt;/font&gt;
 
 快走快走！等会儿再偷偷回来看看。
 	&lt;&lt;set $G211L to &quot;&quot;&gt;&gt;
 &lt;&lt;else&gt;&gt;
 	&lt;&lt;textbox &quot;$G211L&quot; &quot;&quot; [[巨大的柜子]]&gt;&gt;[[确定|巨大的柜子]]
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $gz3 is false&gt;&gt;
@@ -919,7 +936,9 @@ When can open the moon pen in the end?
 &lt;&lt;set $SS to true&gt;&gt;&lt;&lt;set $BB to true&gt;&gt;&lt;&lt;set $KK to true&gt;&gt;
 &lt;font color=&quot;#9F9D98&quot;&gt;这里有乱七八糟的魔法小道具，你看到了【植物速生剂】【棒棒糖】和【扩音器】
 此外这里还有一个小保险柜，牢牢地锁着呢，柜门上有个月亮图案，可能和钥匙有关。
-咦，这是什么？你打算离开的时候，发现在柜子最里面的缝隙中夹着一本蛮漂亮的小册子，可惜上了密码锁，还是26位键盘的密码锁&lt;/font&gt;
+咦，这是什么？你打算离开的时候，发现在柜子最里面的缝隙中夹着一本蛮漂亮的小册子，它的封面上还画着一颗&lt;font color=&quot;#9BFA75&quot;&gt;五&lt;/font&gt;&lt;font color=&quot;#FFB2F3&quot;&gt;颜&lt;/font&gt;&lt;font color=&quot;#FFE8B2&quot;&gt;六&lt;/font&gt;&lt;font color=&quot;#B2DCFF&quot;&gt;色&lt;/font&gt;&lt;font color=&quot;#BFAAFF&quot;&gt;的&lt;/font&gt;&lt;font color=&quot;#FFBEAA&quot;&gt;蛋&lt;/font&gt;，看不出是谁生的。
+
+可惜小册子上了密码锁，还是26位英文键盘的密码锁。&lt;/font&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $SS is true&gt;&gt;
 &lt;&lt;if $G21 ===&quot;月亮锁钥匙&quot;&gt;&gt;
@@ -945,7 +964,7 @@ When can open the moon pen in the end?
 
 至于日记内容？谁要看自己的黑历史啊！[[试试另一条世界线|巨大的柜子][$G22 to &quot;&quot;]]
 
-PS：鹦鹉及其他动物基本都不能吃加工食品，比如棒棒糖。游戏魔法演绎不要作为真实参考依据
+&lt;font color=&quot;#9F9D98&quot;&gt;PS：鹦鹉及其他动物基本都不能吃加工食品，比如棒棒糖。游戏魔法演绎不要作为真实参考依据喔！&lt;/font&gt;
 &lt;&lt;elseif $G22 ===&quot;raptor&quot;&gt;&gt;
 嗯？这是你的日记本？！
 “这个日记本用谁的名字打开，就能看到谁的日记。”盆栽说，它努力地往你这边够想偷看，可惜不够长。
@@ -958,7 +977,7 @@ PS：鹦鹉及其他动物基本都不能吃加工食品，比如棒棒糖。游
 
 至于日记内容？黑暗的过去就让它沉睡在黑暗之中吧！[[试试另一条世界线|巨大的柜子][$G22 to &quot;&quot;]]
 
-PS：猛禽及其他动物基本都不能吃加工食品，比如棒棒糖。游戏魔法演绎不要作为真实参考依据
+&lt;font color=&quot;#9F9D98&quot;&gt;PS：猛禽及其他动物基本都不能吃加工食品，比如棒棒糖。游戏魔法演绎不要作为真实参考依据喔！&lt;/font&gt;
 &lt;&lt;else&gt;&gt;
 你尝试解锁小册子密码&lt;&lt;textbox &quot;$G22&quot; &quot;&quot; [[巨大的柜子]]&gt;&gt;[[确定|巨大的柜子]]
 &lt;&lt;/if&gt;&gt;
