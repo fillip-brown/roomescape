@@ -5,14 +5,6 @@
 
 # 攻略
 <p>懒得写了，有需要再说吧！！！好麻烦啊！！！</p>
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>下拉选择内容显示</title>
-</head>
-<body>
     <h1>下拉选择内容显示</h1>
     
     <label for="content-selector">请选择一个主题：</label>
@@ -70,5 +62,3 @@
             }
         });
     </script>
-</body>
-</html>
