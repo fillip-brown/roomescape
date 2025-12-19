@@ -148,7 +148,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 
 [[魔法人偶]]
 
-[[盆栽]]</tw-passagedata><tw-passagedata pid="5" name="笼子" tags="" position="375,200" size="100,100">&lt;h2&gt;笼子&lt;/h2&gt;
+[[盆栽]]</tw-passagedata><tw-passagedata pid="5" name="笼子" tags="" position="375,175" size="100,100">&lt;h2&gt;笼子&lt;/h2&gt;
 你查看了笼子的锁，这是一个魔法锁，你看不懂它的构造，但你能发现锁中央的部分缺失了，也许把零件拼好锁就能打开。
 你查看了笼子的其他部分，这个金属笼子十分坚固，你不论怎么努力都无法撼动分毫，看来只能想办法打开锁了。
 笼子的其他部分有一个放水的架子和放食物的碗，吃的就那么盛在里面，凉的！你不能忍受被当成肉鸡对待的事实，已经拒绝吃饭很多天了。
@@ -873,7 +873,7 @@ Write a short essay about pies:
 你正打算走，忽然发现它的房顶上挂着一串小红果子。它不是不爱吃吗？
 凑近一看，原来是小红铃铛，用彩色绳子串了起来，系了一个漂亮的结。
 
-“有些女巫声称自己的魔法来自于另一个世界，她们通过梦境穿梭其间。这个五彩绳就是某个女巫带来的跨越了世界的祝福之术。”盆栽说。“小兵人说这个送给你，希望你一路平安”
+“有些女巫声称自己的魔法来自于另一个世界，她们通过梦境穿梭其间。这个五彩绳就是某个女巫带来的跨越了世界的祝福魔法！”盆栽说。“小兵人说这个送给你，希望你一路平安”
 
 获得了【平安铃铛】
 
@@ -1170,11 +1170,11 @@ When can open the moon pen in the end?
 如果感兴趣的话，可以试试我的另一个东西，颜文字表情包生成器（）
 
 https://dwz8.site/yanwenzi/index.html
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="盆栽2" tags="未做完" position="775,525" size="100,100">[[回到大门]]
-&lt;&lt;if $kk1 is false&gt;&gt;&lt;&lt;else&gt;&gt;&lt;font color=&quot;#D5D5D5&quot;&gt;[[小屋大厅|2-2]]&gt;[[实验台|巨大的实验台]]-[[挂画]]&lt;/font&gt;&lt;&lt;/if&gt;&gt;
-&lt;font color=&quot;#D5D5D5&quot;&gt;[[小屋大厅|2-2]]&gt;[[魔法人偶|人偶]]-[[窗帘]]-&lt;&lt;if $KK1 is false&gt;&gt;[[盆栽|盆栽1]]&lt;&lt;else&gt;&gt;[[盆栽|盆栽2]]&lt;&lt;/if&gt;&gt;&lt;&lt;if $HS is false&gt;&gt;&lt;&lt;else&gt;&gt;-[[回溯魔法阵]]&lt;&lt;/if&gt;&gt;&lt;/font&gt;
-&lt;&lt;if $kk3 is false&gt;&gt;&lt;&lt;else&gt;&gt;&lt;font color=&quot;#D5D5D5&quot;&gt;[[小屋大厅|2-2]]&gt;[[柜子|巨大的柜子]]-[[魔法扫帚]]&lt;/font&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $kk4 is false&gt;&gt;&lt;&lt;else&gt;&gt;&lt;font color=&quot;#D5D5D5&quot;&gt;[[小屋大厅|2-2]]&gt;[[魔法鱼缸]]&lt;/font&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="盆栽2" tags="未做完" position="775,525" size="100,100">[[回到大门][$ntalk to 0]]
+&lt;&lt;if $kk1 is false&gt;&gt;&lt;&lt;else&gt;&gt;&lt;font color=&quot;#D5D5D5&quot;&gt;[[小屋大厅|2-2][$ntalk to 0]]&gt;[[实验台|巨大的实验台][$ntalk to 0]]-[[挂画][$ntalk to 0]]&lt;/font&gt;&lt;&lt;/if&gt;&gt;
+&lt;font color=&quot;#D5D5D5&quot;&gt;[[小屋大厅|2-2][$ntalk to 0]]&gt;[[魔法人偶|人偶][$ntalk to 0]]-[[窗帘][$ntalk to 0]]-&lt;&lt;if $KK1 is false&gt;&gt;[[盆栽|盆栽1]]&lt;&lt;else&gt;&gt;[[盆栽|盆栽2][$ntalk to 0]]&lt;&lt;/if&gt;&gt;&lt;&lt;if $HS is false&gt;&gt;&lt;&lt;else&gt;&gt;-[[回溯魔法阵][$ntalk to 0]]&lt;&lt;/if&gt;&gt;&lt;/font&gt;
+&lt;&lt;if $kk3 is false&gt;&gt;&lt;&lt;else&gt;&gt;&lt;font color=&quot;#D5D5D5&quot;&gt;[[小屋大厅|2-2][$ntalk to 0]]&gt;[[柜子|巨大的柜子][$ntalk to 0]]-[[魔法扫帚][$ntalk to 0]]&lt;/font&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $kk4 is false&gt;&gt;&lt;&lt;else&gt;&gt;&lt;font color=&quot;#D5D5D5&quot;&gt;[[小屋大厅|2-2][$ntalk to 0]]&gt;[[魔法鱼缸][$ntalk to 0]]&lt;/font&gt;&lt;&lt;/if&gt;&gt;
 &lt;h2&gt;盆栽&lt;/h2&gt;
 [[与盆栽攀谈|盆栽2][$ntalk+=1]]
 &lt;&lt;if $ntalk===0&gt;&gt;&lt;&lt;if $JQ12 is false&gt;&gt;
@@ -1192,6 +1192,9 @@ https://dwz8.site/yanwenzi/index.html
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;elseif $ntalk lt $talktoplant.length&gt;&gt;
 $talktoplant[$ntalk]
+&lt;&lt;if $JQ12 is true&gt;&gt;
+&lt;font color=&quot;#82B65B&quot;&gt;&lt;&lt;if $JQ13 is true&gt;&gt;&lt;&lt;set _suiji to random(0,8)&gt;&gt;$song[_suiji]&lt;&lt;else&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;/font&gt;
+[[听歌|盆栽2][$JQ13 to true]]&lt;&lt;else&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
 盆栽看起来萎靡了，你叫它也没反应。
 也许它只是在傲娇？你又又又又又叫了它几声，它干脆倒下去死掉了。
